@@ -47,6 +47,11 @@ class SiteController extends Controller
         ];
     }
 
+    public function actionSay($target = 'World')
+        {
+            return $this->render('say', ['target' => $target]);
+        }
+        
     public function actionIndex()
     {
         return $this->render('index');
