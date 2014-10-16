@@ -40,6 +40,13 @@ $config = [
         'db' => require(__DIR__ . '/db.php'),
     ],
     'params' => $params,
+    'urlManager' => [
+        'enablePrettyUrl' => true,
+        'showScriptName' => false,
+        'rules' => [
+            // your url config rules
+        ]
+    ]
 ];
 
 if (YII_ENV_DEV) {
