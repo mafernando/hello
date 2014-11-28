@@ -1,11 +1,9 @@
 <?php
-use yii\helpers\Html;
-use yii\widgets\ActiveForm;
-use app\models\Status;
+  use yii\helpers\Html;
+  use yii\widgets\ActiveForm;
+  use app\models\Status;
 ?>
-<?php $form = ActiveForm::begin(); 
-
-?>
+<?php $form = ActiveForm::begin();?>
     <?= $form->field($model, 'text')->textArea(['rows' => '4'])->label('Status Update'); ?>
 
     <?=
