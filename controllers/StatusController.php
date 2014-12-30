@@ -65,8 +65,7 @@ class StatusController extends Controller
         if ($model->load(Yii::$app->request->post())) {
           $model->created_at = time();
           $model->updated_at = time();
-           if ($model->save()) {
-             
+           if ($model->save()) {             
              return $this->redirect(['view', 'id' => $model->id]);             
            } 
         } 
