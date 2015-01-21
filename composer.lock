@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "5e9aee9319642b0832c36664de662c5e",
+    "hash": "02ecc7301454f74c8c8adabda0a4f04a",
     "packages": [
         {
             "name": "bower-asset/bootstrap",
@@ -375,6 +375,55 @@
                 "html"
             ],
             "time": "2013-11-30 08:25:19"
+        },
+        {
+            "name": "stichoza/google-translate-php",
+            "version": "v2.0.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Stichoza/google-translate-php.git",
+                "reference": "7bdf29ed44ed71dadac80ec389699ee327acdf27"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Stichoza/google-translate-php/zipball/7bdf29ed44ed71dadac80ec389699ee327acdf27",
+                "reference": "7bdf29ed44ed71dadac80ec389699ee327acdf27",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.29"
+            },
+            "require-dev": {
+                "phpspec/phpspec": "~2.0",
+                "phpunit/phpunit": "~3.7"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Stichoza\\Google\\": "src/"
+                },
+                "psr-4": {
+                    "Stichoza\\Google\\": "src/Stichoza/Google/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Levan Velijanashvili",
+                    "email": "me@stichoza.com"
+                }
+            ],
+            "description": "Google Translate API free PHP class",
+            "homepage": "http://github.com/Stichoza/google-translate-php",
+            "keywords": [
+                "google",
+                "php",
+                "translate"
+            ],
+            "time": "2014-10-17 19:24:36"
         },
         {
             "name": "swiftmailer/swiftmailer",

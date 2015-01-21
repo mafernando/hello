@@ -44,12 +44,11 @@ class Status extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id' => 'ID',
-            'message' => 'Message',
-            'permissions' => 'Permissions',
-            'created_at' => 'Created At',
-            'updated_at' => 'Updated At',
-        ];
+          'id' => Yii::t('app', 'ID'),
+          'message' => Yii::t('app', 'Message'),
+          'permissions' => Yii::t('app', 'Permissions'),
+          'created_at' => Yii::t('app', 'Created At'),
+          'updated_at' => Yii::t('app', 'Updated At'),        ];
     }
     
     public function getPermissions() {

@@ -17,4 +17,5 @@ return array(
     'yii\\' => array($vendorDir . '/yiisoft/yii2'),
     'dektrium\\user\\' => array($vendorDir . '/dektrium/yii2-user'),
     'cebe\\markdown\\' => array($vendorDir . '/cebe/markdown'),
+    'Stichoza\\Google\\' => array($vendorDir . '/stichoza/google-translate-php/src/Stichoza/Google'),
 );

@@ -14,6 +14,14 @@ return [
         'gii' => 'yii\gii\Module',
     ],
     'components' => [
+      'i18n' => [
+          'translations' => [
+              'web*' => [
+                  'class' => 'yii\i18n\PhpMessageSource',
+                  'basePath' => '@app/messages',
+              ],
+          ],
+      ],        
         'cache' => [
             'class' => 'yii\caching\FileCache',
         ],

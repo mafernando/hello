@@ -26,22 +26,22 @@ AppAsset::register($this);
     <div class="wrap">
         <?php
             NavBar::begin([
-                'brandLabel' => 'My Company',
+                'brandLabel' => Yii::t('app', 'My Company'),
                 'brandUrl' => Yii::$app->homeUrl,
                 'options' => [
                     'class' => 'navbar-inverse navbar-fixed-top',
                 ],
             ]);
             $navItems=[
-                ['label' => 'Home', 'url' => ['/site/index']],
-                ['label' => 'Status', 'url' => ['/status/index']],
-                ['label' => 'About', 'url' => ['/site/about']],
-                ['label' => 'Contact', 'url' => ['/site/contact']]
+                ['label' =>  Yii::t('app', 'Home'), 'url' => ['/site/index']],
+                ['label' => Yii::t('app','Status'), 'url' => ['/status/index']],
+                ['label' => Yii::t('app','About'), 'url' => ['/site/about']],
+                ['label' => Yii::t('app','Contact'), 'url' => ['/site/contact']]
               ];
               if (Yii::$app->user->isGuest) {
-                array_push($navItems,['label' => 'Sign In', 'url' => ['/user/login']],['label' => 'Sign Up', 'url' => ['/user/register']]);
+                array_push($navItems,['label' => Yii::t('app','Sign In'), 'url' => ['/user/login']],['label' => Yii::t('app','Sign Up'), 'url' => ['/user/register']]);
               } else {
-                array_push($navItems,['label' => 'Logout (' . Yii::$app->user->identity->username . ')',
+                array_push($navItems,['label' => Yii::t('app','Logout').' (' . Yii::$app->user->identity->username . ')',
                     'url' => ['/site/logout'],
                     'linkOptions' => ['data-method' => 'post']]
                 );
@@ -63,7 +63,7 @@ AppAsset::register($this);
 
     <footer class="footer">
         <div class="container">
-            <p class="pull-left">&copy; My Company <?= date('Y') ?></p>
+            <p class="pull-left">&copy; <?= Yii::t('app','My Company') ?> <?= date('Y') ?></p>
             <p class="pull-right"><?= Yii::powered() ?></p>
         </div>
     </footer>
