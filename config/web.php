@@ -6,7 +6,7 @@ $config = [
     'id' => 'basic',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
-    'language'=>'es', // spanish
+    'language'=>'en', // back to English
     'components' => [
       'urlManager' => [
               'showScriptName' => false,
@@ -24,6 +24,9 @@ $config = [
             'enableUnconfirmedLogin' => true,
             'confirmWithin' => 21600,
             'cost' => 12,
+            'modelMap' => [
+                    'User' => 'app\models\User',
+              ],
             'admins' => ['admin']
         ],        
         'errorHandler' => [

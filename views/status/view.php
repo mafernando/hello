@@ -24,11 +24,11 @@ $this->params['breadcrumbs'][] = $this->title;
             ],
         ]) ?>
     </p>
-
     <?= DetailView::widget([
         'model' => $model,
         'attributes' => [
             'id',
+            'createdBy.email',
             'message:ntext',
             'permissions',
             'created_at',

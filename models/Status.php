@@ -12,6 +12,9 @@ use Yii;
  * @property integer $permissions
  * @property integer $created_at
  * @property integer $updated_at
+ * @property integer $created_by 
+ * 
+ * @property User $createdBy
  */
 class Status extends \yii\db\ActiveRecord
 {
@@ -32,9 +35,9 @@ class Status extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['message', 'created_at', 'updated_at'], 'required'],
+            [['message', 'created_at', 'updated_at','created_by'], 'required'],
             [['message'], 'string'],
-            [['permissions', 'created_at', 'updated_at'], 'integer']
+            [['permissions', 'created_at', 'updated_at','created_by'], 'integer']
         ];
     }
 
@@ -47,6 +50,7 @@ class Status extends \yii\db\ActiveRecord
           'id' => Yii::t('app', 'ID'),
           'message' => Yii::t('app', 'Message'),
           'permissions' => Yii::t('app', 'Permissions'),
+          'created_by' => Yii::t('app', 'Created By'),
           'created_at' => Yii::t('app', 'Created At'),
           'updated_at' => Yii::t('app', 'Updated At'),        ];
     }
@@ -62,4 +66,12 @@ class Status extends \yii\db\ActiveRecord
             return 'Private';        
           }
         }
+        
+    /**
+        * @return \yii\db\ActiveQuery
+        */
+       public function getCreatedBy()
+       {
+           return $this->hasOne(User::className(), ['id' => 'created_by']);
+       }
 }
