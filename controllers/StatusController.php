@@ -95,6 +95,23 @@ class StatusController extends Controller
     }
 
     /**
+     * Displays a single Status model.
+     * @param string $slug
+     * @return mixed
+     */
+    public function actionSlug($slug)
+    { 
+      $model = Status::find()->where(['slug'=>$slug])->one();
+      if (!is_null($model)) {
+          return $this->render('view', [
+              'model' => $model,
+          ]);      
+      } else {
+        return $this->redirect('/status/index');
+      }
+    }
+    
+    /**
      * Creates a new Status model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed

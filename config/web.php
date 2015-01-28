@@ -10,7 +10,17 @@ $config = [
     'components' => [
       'urlManager' => [
               'showScriptName' => false,
-              'enablePrettyUrl' => true
+              'enablePrettyUrl' => true,
+                'rules' => [
+                                  'status' => 'status/index',
+                                  'status/index' => 'status/index',
+                                  'status/create' => 'status/create',
+                                  'status/view/<id:\d+>' => 'status/view',  
+                                  'status/update/<id:\d+>' => 'status/update',  
+                                  'status/delete/<id:\d+>' => 'status/delete',  
+                                  'status/<slug>' => 'status/slug',
+                    		            'defaultRoute' => '/site/index',
+                              ],              
                       ],    
         'request' => [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation

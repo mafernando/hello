@@ -3,6 +3,7 @@
 namespace app\models;
 
 use Yii;
+use yii\behaviors\SluggableBehavior;
 
 /**
  * This is the model class for table "status".
@@ -21,6 +22,18 @@ class Status extends \yii\db\ActiveRecord
       const PERMISSIONS_PRIVATE = 10;
       const PERMISSIONS_PUBLIC = 20;  
   
+      public function behaviors()
+          {
+              return [
+                  [
+                      'class' => SluggableBehavior::className(),
+                      'attribute' => 'message',
+                      'immutable' => true,
+                      'ensureUnique'=>true,
+                  ],
+              ];
+          }
+            
     /**
      * @inheritdoc
      */

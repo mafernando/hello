@@ -22,19 +22,24 @@ $this->params['breadcrumbs'][] = $this->title;
     </p>
 
     <?= GridView::widget([
-        'dataProvider' => $dataProvider,
-        'filterModel' => $searchModel,
-        'columns' => [
-            ['class' => 'yii\grid\SerialColumn'],
-
-            'id',
-            'message:ntext',
-            'permissions',
-            'created_at',
-            'updated_at',
-
-            ['class' => 'yii\grid\ActionColumn'],
-        ],
-    ]); ?>
+           'dataProvider' => $dataProvider,
+           'filterModel' => $searchModel,
+           'columns' => [
+               ['class' => 'yii\grid\SerialColumn'],
+               'id',
+               'message:ntext',
+               'permissions',
+               'created_at',
+               'updated_at',
+       		      ['class' => 'yii\grid\ActionColumn',
+   				      'template'=>'{view} {update} {delete}',
+   					    'buttons'=>[
+                   'view' => function ($url, $model) {     
+                     return Html::a('<span class="glyphicon glyphicon-eye-open"></span>', 'status/'.$model->slug, ['title' => Yii::t('yii', 'View'),]);	
+   						      }
+   							],
+   			      ],
+           ],
+       ]); ?>
 
 </div>
