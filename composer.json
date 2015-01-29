@@ -19,7 +19,8 @@
         "yiisoft/yii2-bootstrap": "*",
         "yiisoft/yii2-swiftmailer": "*",
         "dektrium/yii2-user": "0.8.2",
-        "stichoza/google-translate-php": "~2.0"
+        "stichoza/google-translate-php": "~2.0",
+        "yiidoc/yii2-redactor": "2.0.0"
     },
     "require-dev": {
         "yiisoft/yii2-codeception": "*",

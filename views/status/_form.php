@@ -9,10 +9,15 @@ use yii\widgets\ActiveForm;
 ?>
 
 <div class="status-form">
-
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'message')->textarea(['rows' => 6]) ?>
+    <?= $form->field($model, 'message')->widget(\yii\redactor\widgets\Redactor::className(),
+    [
+       'clientOptions' => [
+           'imageUpload' => \yii\helpers\Url::to(['/redactor/upload/image']),
+       ],
+    ]
+      ) ?>
 
     <?=
         $form->field($model, 'permissions')->dropDownList($model->getPermissions(), 

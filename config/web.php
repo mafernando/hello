@@ -66,6 +66,12 @@ $config = [
         ],
         'db' => require(__DIR__ . '/db.php'),
     ],
+    'modules' => [
+          'redactor' => 'yii\redactor\RedactorModule',
+          'class' => 'yii\redactor\RedactorModule',
+          'uploadDir' => '@webroot/uploads',
+          'uploadUrl' => '/hello/uploads',
+      ],
     'params' => $params,
 ];
 

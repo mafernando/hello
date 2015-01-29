@@ -76,4 +76,13 @@ return array (
       '@yii/swiftmailer' => $vendorDir . '/yiisoft/yii2-swiftmailer',
     ),
   ),
+  'yiidoc/yii2-redactor' => 
+  array (
+    'name' => 'yiidoc/yii2-redactor',
+    'version' => '2.0.0.0',
+    'alias' => 
+    array (
+      '@yii/redactor' => '/',
+    ),
+  ),
 );

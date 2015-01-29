@@ -1090,5 +1090,51 @@
             "php",
             "translate"
         ]
+    },
+    {
+        "name": "yiidoc/yii2-redactor",
+        "version": "2.0.0",
+        "version_normalized": "2.0.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/yiidoc/yii2-redactor.git",
+            "reference": "4549163738ee6248c775af23218c57b2d6452ead"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/yiidoc/yii2-redactor/zipball/4549163738ee6248c775af23218c57b2d6452ead",
+            "reference": "4549163738ee6248c775af23218c57b2d6452ead",
+            "shasum": ""
+        },
+        "require": {
+            "yiisoft/yii2": "*"
+        },
+        "time": "2015-01-14 11:20:49",
+        "type": "yii2-extension",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "yii\\redactor\\": "/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "BSD-3-Clause"
+        ],
+        "authors": [
+            {
+                "name": "Nghia Nguyen",
+                "email": "zinzinday@gmail.com"
+            }
+        ],
+        "description": "Extension redactor for Yii2 Framework.",
+        "keywords": [
+            "Redactor",
+            "extension",
+            "html editor",
+            "imperavi",
+            "wysiwyg",
+            "yii2"
+        ]
     }
 ]
