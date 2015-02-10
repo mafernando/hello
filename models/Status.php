@@ -3,6 +3,7 @@
 namespace app\models;
 
 use Yii;
+use yii\db\ActiveRecord;
 use yii\behaviors\SluggableBehavior;
 use yii\behaviors\BlameableBehavior;
 
@@ -37,6 +38,13 @@ class Status extends \yii\db\ActiveRecord
                       'createdByAttribute' => 'created_by',
                       'updatedByAttribute' => 'updated_by',
                   ],
+                  'timestamp' => [
+                      'class' => 'yii\behaviors\TimestampBehavior',
+                      'attributes' => [
+                          ActiveRecord::EVENT_BEFORE_INSERT => ['created_at', 'updated_at'],
+                          ActiveRecord::EVENT_BEFORE_UPDATE => ['updated_at'],
+                      ],
+                  ],
               ];
           }
        
@@ -55,7 +63,7 @@ class Status extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['message', 'created_at', 'updated_at'], 'required'],
+            [['message'], 'required'],
             [['message'], 'string'],
             [['permissions', 'created_at', 'updated_at','created_by'], 'integer']
         ];
