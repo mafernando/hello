@@ -3,6 +3,7 @@
 namespace app\models;
 
 use Yii;
+use yii\models\User;
 
 /**
  * This is the model class for table "sample".
@@ -16,6 +17,29 @@ use Yii;
  */
 class Sample extends \yii\db\ActiveRecord
 {
+    public $captcha;
+    
+    /**
+     * @inheritdoc
+     */
+    public function rules()
+    {
+        return [
+          [['thought'], 'string', 'max' => 255],
+          ['thought', 'match', 'pattern' => '/^[a-z][A-Za-z,;\"\\s]+[!?.]$/i','message'=>Yii::t('app','Your thoughts should form a complete sentence of alphabetic characters.')],
+          [['email'], 'email'],
+          [['email'], 'exist','targetClass'=>'\app\models\User','message'=>Yii::t('app','Sorry, that person hasn\'t registered yet')],
+          [['url'], 'url'],
+          ['censorship', 'in', 'range' => ['yes','no','Yes','No'],'message'=>Yii::t('app','The censors demand a yes or no answer.')],
+          [['thought'], 'trim'],
+          [['thought'], 'required'],
+          [['captcha'], 'captcha'],
+          [['rank'], 'integer'],
+          ['rank', 'compare', 'compareValue' => 0, 'operator' => '>','message'=>Yii::t('app','Rank must be between 0 and 100 inclusive.')],
+          ['rank', 'compare', 'compareValue' => 100, 'operator' => '<=','message'=>Yii::t('app','Rank must be between 0 and 100 inclusive.')],
+        ];
+    }
+
     /**
      * @inheritdoc
      */
@@ -24,21 +48,6 @@ class Sample extends \yii\db\ActiveRecord
         return 'sample';
     }
 
-    /**
-     * @inheritdoc
-     */
-    public function rules()
-    {
-        return [
-            [['goodness'], 'boolean'],
-            [['rank'], 'integer'],
-            [['thought', 'censorship'], 'string', 'max' => 255],
-            [['rank', 'censorship','occurred'], 'required'],
-            ['occurred', 'date', 'format' => 'yyyy-M-d'],
-            //['occurred', 'default', 'value' => date("Y-m-d")],
-            [['thought'], 'trim'],
-        ];
-    }
 
     /**
      * @inheritdoc

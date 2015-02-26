@@ -19,6 +19,10 @@ class m150219_235923_create_sample_table extends Migration
               'rank' => Schema::TYPE_INTEGER . ' NOT NULL',
               'censorship' => Schema::TYPE_STRING . ' NOT NULL',
               'occurred' => Schema::TYPE_DATE . ' NOT NULL',
+              'email' => Schema::TYPE_STRING . ' NOT NULL DEFAULT ""',
+              'url' => Schema::TYPE_STRING . ' NOT NULL DEFAULT ""',
+              'filename' => Schema::TYPE_STRING.' NOT NULL',
+              'avatar' => Schema::TYPE_STRING.' NOT NULL',
           ], $tableOptions);          
       }
 
