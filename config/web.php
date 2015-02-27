@@ -1,4 +1,5 @@
 <?php
+$config = parse_ini_file('/var/secure/hello.ini', true);
 
 $params = require(__DIR__ . '/params.php');
 
@@ -8,6 +9,27 @@ $config = [
     'bootstrap' => ['log'],
     'language'=>'en', // back to English
     'components' => [
+      'view' => [
+              'theme' => [
+                  'pathMap' => [
+                      '@dektrium/user/views' => '@app/views/user'
+                  ],
+              ],
+          ],    
+      'authClientCollection' => [
+              'class' => 'yii\authclient\Collection',
+              'clients' => [
+                  'google' => [
+                      'class' => 'yii\authclient\clients\GoogleOpenId'
+                  ],
+                  'twitter' => [
+                                  'class' => 'yii\authclient\clients\Twitter',
+                                  'consumerKey' => $config['oauth_twitter_key'] ,
+                                  'consumerSecret' => $config['oauth_twitter_secret'] ,
+                              ],
+                ],
+        ],
+    
       'urlManager' => [
               'showScriptName' => false,
               'enablePrettyUrl' => true,
@@ -48,9 +70,9 @@ $config = [
                 'useFileTransport' => false,
                 'transport' => [
                     'class' => 'Swift_SmtpTransport',
-                    'host' => 'mailtrap.io',
-                    'username' => '294923f5b4257dd20',
-                    'password' => '40307495cde2f7',
+                    'host' => $config['smtp_host'],
+                    'username' => $config['smtp_username'],
+                    'password' => $config['smtp_password'],
                     'port' => '25',
                     'encryption' => 'tls',
                                 ],
