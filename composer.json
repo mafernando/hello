@@ -18,7 +18,7 @@
         "yiisoft/yii2": "*",
         "yiisoft/yii2-bootstrap": "*",
         "yiisoft/yii2-swiftmailer": "*",
-        "dektrium/yii2-user": "0.8.2",
+        "dektrium/yii2-user": "0.9.*@dev",
         "stichoza/google-translate-php": "~2.0",
         "yiidoc/yii2-redactor": "2.0.0",
         "yiisoft/yii2-authclient": "*"

@@ -20,7 +20,9 @@ $config = [
               'class' => 'yii\authclient\Collection',
               'clients' => [
                   'google' => [
-                      'class' => 'yii\authclient\clients\GoogleOpenId'
+                      'class'        => 'dektrium\user\clients\Google',
+                      'clientId'     => $config['oauth_google_clientId'],
+                      'clientSecret' => $config['oauth_google_clientSecret'],
                   ],
                   'twitter' => [
                                   'class' => 'yii\authclient\clients\Twitter',
@@ -51,16 +53,6 @@ $config = [
         'cache' => [
             'class' => 'yii\caching\FileCache',
         ],
-        'user' => [
-            'class' => 'dektrium\user\Module',
-            'enableUnconfirmedLogin' => true,
-            'confirmWithin' => 21600,
-            'cost' => 12,
-            'modelMap' => [
-                    'User' => 'app\models\User',
-              ],
-            'admins' => ['admin']
-        ],        
         'errorHandler' => [
             'errorAction' => 'site/error',
         ],
@@ -73,7 +65,7 @@ $config = [
                     'host' => $config['smtp_host'],
                     'username' => $config['smtp_username'],
                     'password' => $config['smtp_password'],
-                    'port' => '25',
+                    'port' => '2525',
                     'encryption' => 'tls',
                                 ],
             ],
@@ -93,6 +85,13 @@ $config = [
           'class' => 'yii\redactor\RedactorModule',
           'uploadDir' => '@webroot/uploads',
           'uploadUrl' => '/hello/uploads',
+          'user' => [
+                  'class' => 'dektrium\user\Module',
+                'enableUnconfirmedLogin' => TRUE,
+                'confirmWithin' => 21600,
+                'cost' => 12,
+                'admins' => ['admin']
+              ],              
       ],
     'params' => $params,
 ];
