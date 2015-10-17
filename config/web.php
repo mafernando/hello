@@ -1,8 +1,6 @@
 <?php
 $config = parse_ini_file('/var/secure/hello.ini', true);
-
 $params = require(__DIR__ . '/params.php');
-
 $config = [
     'id' => 'basic',
     'basePath' => dirname(__DIR__),
@@ -86,7 +84,7 @@ $config = [
           'uploadDir' => '@webroot/uploads',
           'uploadUrl' => '/hello/uploads',
           'user' => [
-                  'class' => 'dektrium\user\Module',
+                'class' => 'dektrium\user\Module',
                 'enableUnconfirmedLogin' => TRUE,
                 'confirmWithin' => 21600,
                 'cost' => 12,
