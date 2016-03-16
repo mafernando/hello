@@ -22,7 +22,8 @@
         "stichoza/google-translate-php": "~2.0",
         "yiidoc/yii2-redactor": "2.0.0",
         "yiisoft/yii2-authclient": "*",
-        "google/apiclient": "1.*"
+        "google/apiclient": "1.*",
+        "kartik-v/yii2-widget-fileinput": "*"
     },
     "require-dev": {
         "yiisoft/yii2-codeception": "*",

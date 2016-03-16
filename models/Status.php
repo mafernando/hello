@@ -13,6 +13,8 @@ use yii\behaviors\BlameableBehavior;
  * @property integer $id
  * @property string $message
  * @property integer $permissions
+ * @property string $image_src_filename
+ * @property string $image_web_filename
  * @property integer $created_at
  * @property integer $updated_at
  * @property integer $created_by 
@@ -23,7 +25,8 @@ class Status extends \yii\db\ActiveRecord
 {
       const PERMISSIONS_PRIVATE = 10;
       const PERMISSIONS_PUBLIC = 20;  
-  
+      public $image;
+      
       public function behaviors()
           {
               return [
@@ -47,7 +50,6 @@ class Status extends \yii\db\ActiveRecord
                   ],
               ];
           }
-       
             
     /**
      * @inheritdoc
@@ -62,11 +64,14 @@ class Status extends \yii\db\ActiveRecord
      */
     public function rules()
     {
-        return [
+        return [        
             [['message'], 'required'],
             [['message'], 'string'],
-            [['permissions', 'created_at', 'updated_at','created_by'], 'integer']
-        ];
+            [['permissions', 'created_at', 'updated_at','created_by'], 'integer'],
+            [['image'], 'safe'],
+            [['image'], 'file', 'extensions'=>'jpg, gif, png'],
+            [['image'], 'file', 'maxSize'=>'100000'],
+             [['image_src_filename', 'image_web_filename'], 'string', 'max' => 255],        ];
     }
 
     /**
@@ -78,6 +83,8 @@ class Status extends \yii\db\ActiveRecord
           'id' => Yii::t('app', 'ID'),
           'message' => Yii::t('app', 'Message'),
           'permissions' => Yii::t('app', 'Permissions'),
+          'image_src_filename' => Yii::t('app', 'Filename'),
+          'image_web_filename' => Yii::t('app', 'Pathname'),          
           'created_by' => Yii::t('app', 'Created By'),
           'created_at' => Yii::t('app', 'Created At'),
           'updated_at' => Yii::t('app', 'Updated At'),        ];

@@ -2,8 +2,9 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
-
 use app\assets\StatusAsset;
+use kartik\file\FileInput;
+
 StatusAsset::register($this);
 
 /* @var $this yii\web\View */
@@ -12,8 +13,10 @@ StatusAsset::register($this);
 ?>
 
 <div class="status-form">
-    <?php $form = ActiveForm::begin(); ?>
-    
+  <?php 
+      $form = ActiveForm::begin([
+          'options'=>['enctype'=>'multipart/form-data']]); // important         
+           ?>    
     <div class="row">
       <div class="col-md-8">
       <?= $form->field($model, 'message')->textarea(['rows' => 6]) ?>
@@ -30,6 +33,12 @@ StatusAsset::register($this);
                  ['prompt'=>Yii::t('app','- Choose Your Permissions -')]) ?>
                </div>
     </div>
+    <div class="row">
+      <?= $form->field($model, 'image')->widget(FileInput::classname(), [
+              'options' => ['accept' => 'image/*'],
+               'pluginOptions'=>['allowedFileExtensions'=>['jpg','gif','png'],'showUpload' => false,],
+          ]);   ?>
+  </div>
     <div class="row">
                  
     <div class="form-group">

@@ -30,7 +30,14 @@ $this->params['breadcrumbs'][] = $this->title;
                'message:ntext',
                'permissions',
                'created_at',
-               'updated_at',
+               [
+                     'attribute' => 'Image',
+                     'format' => 'raw',
+                     'value' => function ($model) {   
+                        if ($model->image_web_filename!='')
+                          return '<img src="'.Yii::$app->homeUrl. '/uploads/status/'.$model->image_web_filename.'" width="50px" height="auto">'; else return 'no image';
+                     },
+                   ],
        		      ['class' => 'yii\grid\ActionColumn',
    				      'template'=>'{view} {update} {delete}',
    					    'buttons'=>[
