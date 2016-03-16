@@ -142,8 +142,7 @@ class StatusController extends Controller
               }
               return $this->render('create', [
                   'model' => $model,
-              ]);
-                
+              ]);     
     }
 
     /**
